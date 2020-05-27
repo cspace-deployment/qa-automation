@@ -20,6 +20,8 @@ module CollectionSpacePages
   def sign_out_link; {:xpath => '//a[contains(.,"Sign out")]'} end
   def tools_link; {:xpath => '//a[contains(.,"Tools")]'} end
   def save_button; {:name => 'save'} end
+  def top_save_button; {:xpath => '//div[@class="cspace-ui-RecordHeader--common"]//button[@name="save"]'} end
+  def bottom_save_button; {:xpath => '//footer//button[@name="save"]'} end
   def save_only_button; {:xpath => '//button[contains(.,"Save only")]'} end
   def save_and_lock_button; {:xpath => '//button[contains(.,"Save and lock")]'} end
   def delete_button; {:name => 'delete'} end
@@ -232,6 +234,12 @@ module CollectionSpacePages
     wait_for_element_and_click tools_link
   end
 
+  def click_admin_link
+    logger.info 'Clicking link to Administration'
+    scroll_to_top
+    wait_for_element_and_click admin_link
+  end
+
   # SAVE, DELETE, REVERT, CANCEL
 
   # Clicks the save button
@@ -372,7 +380,7 @@ module CollectionSpacePages
 
   # Hides the header bar to ensure it does not obscure elements on the page
   def hide_header_bar
-    when_exists(header_bar, Config.short_wait)
+    when_exists(header_bar, Config.medium_wait)
     @driver.execute_script("arguments[0].style.visibility='hidden';", element(header_bar))
   end
 
