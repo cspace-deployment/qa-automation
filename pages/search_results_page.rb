@@ -70,16 +70,28 @@ class SearchResultsPage
     wait_for_element_and_click result_row_checkbox(identifier)
   end
 
-  # Clicks the checkbox for a search result row
-  # @param [Integer] row number
-  def select_result_nth_row(value)
-    wait_for_element_and_click(:xpath => "//div[@class=\"cspace-ui-SearchResultTable--common\"]//*[@aria-label=\"row\"][#{value}]")
-  end
-
   # Returns the display name for a search result row
   # @param [Integer] row number
   def name_of_nth_row(value)
+    element(:xpath => "//div[@class=\"cspace-ui-SearchResultTable--common\"]//*[@aria-label=\"row\"][#{value}]//div[@aria-colindex = 2]").attribute("title")
+  end
+
+  def botgarden_name_of_nth_row(value)
     element(:xpath => "//div[@class=\"cspace-ui-SearchResultTable--common\"]//*[@aria-label=\"row\"][#{value}]//div[@aria-colindex = 3]").attribute("title")
+  end
+
+  # Clicks the checkbox for a search result row and returns display name
+  # @param [Integer] row number
+  def select_result_nth_row(value)
+    name = name_of_nth_row(value)
+    wait_for_element_and_click(:xpath => "//div[@class=\"cspace-ui-SearchResultTable--common\"]//*[@aria-label=\"row\"][#{value}]")
+    name
+  end
+
+  def botgarden_select_result_nth_row(value)
+    name = botgarden_name_of_nth_row(value)
+    wait_for_element_and_click(:xpath => "//div[@class=\"cspace-ui-SearchResultTable--common\"]//*[@aria-label=\"row\"][#{value}]")
+    name
   end
 
   def click_search_result_cbx(identifier)
@@ -116,7 +128,11 @@ class SearchResultsPage
   # @param [Integer] integer
   def select_size(integer)
     logger.info "Update results to show #{integer} records"
-    wait_for_options_and_select(footer_select_size_input_locator, select_size_input_options, integer)
+    begin
+      wait_for_options_and_select(footer_select_size_input_locator, select_size_input_options, integer)
+    rescue
+      wait_for_options_and_select(header_select_size_input_locator, select_size_input_options, integer)
+    end 
   end
 
   # Enters a size integer and hits enter

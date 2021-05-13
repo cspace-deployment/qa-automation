@@ -115,4 +115,9 @@ class TestConfig < Config
     parse_test_data((deployment || @deployment), 'test-data-update-dead-flag.json')
   end
 
+  # Returns the test data for the 'PAHMA place authority' test
+  def pahma_authorities_test_data(deployment = nil)
+    parse_test_data((deployment || @deployment), 'test-data-place-authority.json')['places']
+  end
+
 end

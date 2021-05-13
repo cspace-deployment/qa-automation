@@ -34,4 +34,29 @@ module CoreExhibitionInfoForm
     wait_for_element_and_type(plan_note_input_locator, planning_note) if planning_note
   end
 
+  def venue_name_input_locator(index); input_locator([fieldset(CoreExhibitionData::VENUE_GROUP.name, index)], CoreExhibitionData::VENUE_NAME.name) end
+  def venue_name_options_locator(index); input_options_locator([fieldset(CoreExhibitionData::VENUE_GROUP.name, index)], CoreExhibitionData::VENUE_NAME.name) end
+
+  # Enters venue information
+  #@param [Hash] data_set
+  def enter_venue_info(data_set, location_group = nil)
+    venues = data_set[CoreExhibitionData::VENUE_GROUP.name]
+    prep_fieldsets_for_test_data([fieldset(CoreExhibitionData::VENUE_GROUP.name)], venues)
+    venues && venues.each_with_index do |venue, index|
+      logger.debug "Entering venue #{venue[CoreExhibitionData::VENUE_NAME]} info at index #{index}"
+      enter_auto_complete(venue_name_input_locator(index), venue_name_options_locator(index), venue[CoreExhibitionData::VENUE_NAME.name], location_group)
+      ##TODO: Venue Opening date
+      ##TODO: Venue Closing date
+      ##TODO: Venue Attendance
+      ##TODO: Venue URL
+    end
+  end
+
+  # Enters venue name
+  # @param [String] name
+  # @param [Integer] index
+  def enter_venue_name(name, index)
+    enter_auto_complete(venue_name_input_locator(index), venue_name_options_locator(index), name)
+  end
+
 end

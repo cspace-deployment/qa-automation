@@ -30,30 +30,8 @@ class ObjectPage
   end
 
   def enter_botgarden_object_id_data(data)
-    enter_object_number data
-    select_pahma_legacy_dept data
-    enter_num_objects data
-    enter_pahma_count_note data
-    select_pahma_is_component data
-    select_pahma_object_statuses data
-    enter_pahma_alt_num data
-    enter_description data
-    enter_pahma_object_classes data
-    enter_object_names data
-    select_resp_colls data
-    enter_object_type data
-    enter_pahma_assoc_cult_grps data
-    enter_pahma_enthno_file_codes data
-    enter_object_comments data
-    enter_pahma_annotations data
-    enter_pahma_dimensions data
-    enter_pahma_materials data
-    enter_taxonomics data
-    enter_titles data
-    enter_pahma_usages data
-    select_pahma_series data
-    select_pahma_collections data
-    select_pahma_tms_source data
+    enter_botgarden_accession_num data
+    enter_botgarden_taxonomics data
   end
 
   def enter_pahma_object_id_data(data)

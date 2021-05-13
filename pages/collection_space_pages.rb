@@ -287,10 +287,10 @@ module CollectionSpacePages
   end
 
   # Clicks save and waits for confirmation the record has been saved
-  def save_record
+  def save_record(timeout = nil)
     logger.info 'Saving the record'
     start = click_save_button
-    finish = wait_for_notification 'Saved'
+    finish = wait_for_notification('Saved', timeout)
     logger.warn "BENCHMARK - Took #{finish - start} seconds to save record"
   end
 
@@ -318,11 +318,11 @@ module CollectionSpacePages
   end
 
   # Clicks delete, confirms the deletion, and waits for confirmation the record has been deleted
-  def delete_record
+  def delete_record(timeout = nil)
     logger.info 'Deleting the record'
     click_delete_button
     start = wait_for_element_and_click confirm_delete_button
-    finish = wait_for_notification 'Deleted'
+    finish = wait_for_notification('Deleted', timeout)
     logger.warn "BENCHMARK - Took #{finish - start} seconds to delete record"
   end
 

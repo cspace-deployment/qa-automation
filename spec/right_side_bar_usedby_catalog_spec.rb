@@ -61,20 +61,19 @@ describe 'CollectionSpace' do
   mmddyyyy = Time.now.strftime("%-m/%-d/%Y")
   def sidebar_record_text(label, identifier, index); @object_page.element(:xpath => "//section[contains(.,'#{label}')]//a[contains(., '#{identifier}')]//div[#{index}]")  end
 
-  [20,40].each do |variation|
-    it "checks if the pages work in dialog - select #{variation}" do
-      @object_page.click_create_new_link
-      @create_new_page.click_create_new_object
-      @object_page.create_new_object @test_7_object
-      @object_page.click_add_related_object
-      @object_page.close_notifications_bar
-      @search_page.click_modal_clear_button
-      @object_page.click_dialog_search_button
-      @search_results_page.wait_for_results
-      expect(/1(–)\d+ of [1-9]\d+ records found/ === @object_page.element_text(@search_results_page.records_found_header_text)).to be true
-      expect(@object_page.element_value(@search_results_page.footer_select_size_input_locator).to_i >= 0).to be true
-      expect(@object_page.element_text(@search_results_page.num_per_row_lower)).to eql("per page")
+  it "checks if the pages work in dialog" do
+    @object_page.click_create_new_link
+    @create_new_page.click_create_new_object
+    @object_page.create_new_object @test_7_object
+    @object_page.click_add_related_object
+    @object_page.close_notifications_bar
+    @search_page.click_modal_clear_button
+    @search_page.click_search_and_wait_for_results @search_results_page
+    expect(/1(–)\d+ of [1-9]\d+ records found/ === @object_page.element_text(@search_results_page.records_found_header_text)).to be true
+    expect(@object_page.element_value(@search_results_page.footer_select_size_input_locator).to_i >= 0).to be true
+    expect(@object_page.element_text(@search_results_page.num_per_row_lower)).to eql("per page")
 
+    [20, 40].each do |variation|
       @object_page.scroll_to_element(@search_results_page.footer_select_size_input_locator)
       @search_results_page.select_size("#{variation}")
       @search_results_page.wait_for_results
@@ -96,9 +95,6 @@ describe 'CollectionSpace' do
       @object_page.wait_for_element_and_click(@search_results_page.navigation_page_index_button(1))
       expect(@object_page.enabled? @search_results_page.navigation_page_index_button(1)).to be false
       expect(@object_page.enabled? @search_results_page.navigation_left_arrow).to be false
-      if variation == 20
-        @object_page.click_close_button
-      end
     end
   end
 
@@ -139,7 +135,7 @@ describe 'CollectionSpace' do
     expect(@object_page.exists? @object_page.dialog_box).to be true
     expect(@object_page.exists? @object_page.inactive_page_check).to be true
 
-    @object_page.click_dialog_search_button
+    @search_page.click_search_and_wait_for_results @search_results_page
     expect(@object_page.enabled? @search_results_page.relate_selected_button).to be false
     @search_results_page.select_result_row(@related_obj[CoreObjectData::OBJECT_NUM.name])
     @object_page.click_relate_selected_button
@@ -154,7 +150,7 @@ describe 'CollectionSpace' do
     expect(@object_page.exists? @object_page.inactive_page_check).to be true
 
     @search_page.enter_keyword("QA TEST")
-    @object_page.click_dialog_search_button
+    @search_page.click_search_and_wait_for_results @search_results_page
     expect(@object_page.elements(@search_results_page.result_rows)).not_to be_empty
     @object_page.click_close_button
   end
@@ -165,7 +161,7 @@ describe 'CollectionSpace' do
     @object_page.create_new_object @Record_A
     time_stamp_A = @object_page.element_text(@object_page.notifications_timestamp).gsub(/\:\d{2}(?=\s)/, '')
     @object_page.click_add_related_object
-    @object_page.click_dialog_search_button
+    @search_page.click_search_and_wait_for_results @search_results_page
     @search_results_page.select_result_row(@related_obj[CoreObjectData::OBJECT_NUM.name])
     @object_page.click_relate_selected_button
     @object_page.click_sidebar_related_obj(@related_obj[CoreObjectData::OBJECT_NUM.name])
@@ -195,7 +191,7 @@ describe 'CollectionSpace' do
     @object_page.create_new_object @Record_A
     time_stamp_A = @object_page.element_text(@object_page.notifications_timestamp).gsub(/\:\d{2}(?=\s)/,'')
     @object_page.click_add_related_procedure
-    @object_page.click_dialog_search_button
+    @search_page.click_search_and_wait_for_results @search_results_page
     @search_results_page.select_result_row(@related_proc[CoreAcquisitionData::ACQUIS_REF_NUM.name])
     @object_page.click_relate_selected_button
     @object_page.expand_sidebar_related_proc
@@ -276,7 +272,7 @@ describe 'CollectionSpace' do
     expect(@search_results_page.exists? @search_results_page.result_row_checkbox(@Record_A[CoreObjectData::OBJECT_NUM.name])).to be false
     @object_page.click_close_button
   end
-
+  
   it "test adding multiple copies of a record" do
     @object_page.hide_notifications_bar
     @object_page.click_add_related_object

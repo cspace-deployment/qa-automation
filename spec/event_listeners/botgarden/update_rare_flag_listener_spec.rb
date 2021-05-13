@@ -24,28 +24,24 @@ describe 'BOTGARDEN' do
 
   after(:all) { quit_browser @test.driver }
 
-  #Variables for tests
+  red_dot_record = "N/A"
   scientific_name = "test"+Time.now.to_i.to_s
   obj_rec = {
     BOTGARDENObjectData::OBJECT_NUM.name => Time.now.to_i,
     BOTGARDENObjectData::TAXON_IDENT_GRP.name => [{BOTGARDENObjectData::TAXON_NAME.name => scientific_name}]
   }
-  red_dot_record = "N/A"
 
   it "find conservation category value with set qualifier field" do
     @search_page.quick_search("Concepts", "Conservation Category", "red dot on label")
     @search_results_page.wait_for_results
-    red_dot_record = @search_results_page.name_of_nth_row(1)
-    @search_results_page.select_result_nth_row(1)
+    red_dot_record = @search_results_page.botgarden_select_result_nth_row(1)
     @concept_page.verify_qualifier_name("red dot on label", 0)
   end
 
   it "create a new object record for #{scientific_name} taxon" do
     @concept_page.click_create_new_link
     @create_new_page.click_create_new_object
-    @object_page.enter_botgarden_accession_num obj_rec
-    @object_page.enter_botgarden_taxonomics obj_rec
-
+    @object_page.enter_botgarden_object_id_data obj_rec
     summary = "#{obj_rec[BOTGARDENObjectData::OBJECT_NUM.name]} – #{scientific_name}"
     @object_page.click_save_button
     @object_page.wait_for_notification("Saving #{summary}")
@@ -54,17 +50,15 @@ describe 'BOTGARDEN' do
 
     #value in Rare field should be "no"; if yes, enter a unique Taxon name for scientific_name
     #and re-run test (confirm that Rare = "no")
-    expect(@object_page.element_value(@object_page.botgarden_object_rarity) == "no").to be true
+    expect(@object_page.element_value(@object_page.botgarden_object_rarity)).to eql("no")
   end
 
   it "set Conservation category field to term with Qualifier" do
     @object_page.expand_sidebar_terms_used
     @object_page.click_sidebar_term(scientific_name)
-
     taxon = {BOTGARDENTaxonData::PLANT_ATTRIB_GRP.name => [{BOTGARDENTaxonData::CONSERV_CATEG.name => red_dot_record}]}
     @taxon_page.enter_botgarden_attributes(taxon)
     @taxon_page.click_save_button
-
     summary = "#{scientific_name}" # no TERM_STATUS value created for new test taxon
     @object_page.verify_values_match(scientific_name, @taxon_page.element_text(@taxon_page.page_h1))
     @taxon_page.wait_for_notification("Saving #{summary}")
@@ -77,10 +71,9 @@ describe 'BOTGARDEN' do
     @taxon_page.scroll_to_top
     @taxon_page.expand_sidebar_used_by
     @taxon_page.click_sidebar_used_by(obj_rec[BOTGARDENObjectData::OBJECT_NUM.name])
-
     @object_page.when_exists(@object_page.botgarden_object_rarity, Config.short_wait)
-    @object_page.scroll_to_element(@object_page.botgarden_object_rarity)
-    expect(@object_page.element_value(@object_page.botgarden_object_rarity) == "yes").to be true
+    sleep Config.click_wait
+    expect(@object_page.element_value(@object_page.botgarden_object_rarity)).to eql("yes")
   end
 
 end

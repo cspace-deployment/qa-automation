@@ -1,0 +1,256 @@
+{
+    "places": [
+        {
+            "placeTermGroup": [
+                {
+                    "termDisplayName": "Place 0 - PAHMA - Name 0"
+                }
+            ]
+        },
+
+        {
+            "placeTermGroup": [
+                {
+                    "termDisplayName": "Place 1 - PAHMA - Name 0"
+                },
+                {
+                    "termDisplayName": "Place 1 - PAHMA - Name 1"
+                }
+            ]
+        },
+
+        {
+            "placeTermGroup": [
+                {
+                    "termDisplayName": "Place 2 Display Name",
+                    "termName": "Place 2 Term Name 0",
+                    "termQualifier": "Place Term Qualifier 0",
+                    "termStatus": "accepted",
+                    "anthropologyPlaceType": "alternative term",
+                    "termFlag": "official name",
+                    "historicalStatus": "historical",
+                    "termLanguage": "French",
+                    "termPrefForLang": true,
+                    "nameAbbrev": "Place 2 Term Abbreviation",
+                    "nameNote": "Place 2 Term Note",
+                    "nameDate": "12/12/2020",
+                    "termSource": "Term Source 0",
+                    "termSourceDetail": "Term Source Detail 0",
+                    "termSourceID": "Term Source ID 0",
+                    "termSourceNote": "Term Source Note 0"
+                }
+            ],
+            "anthropologyPlaceTypes": [
+                {
+                    "anthropologyPlaceType": "mound"
+                }
+            ],
+            "anthropologyPlaceOwnerGroupList": [
+                {
+                    "anthropologyPlaceOwner": "Owner 0",
+                    "anthropologyPlaceOwnershipStart": "01/12/2006",
+                    "anthropologyPlaceOwnershipEnd": "04/21/2008",
+                    "anthropologyPlaceOwnershipNote": "Ownership Note 0"
+                }
+            ],
+            "placeNoteGroup": [
+                {
+                    "placeNoteText": "Place Note 0",
+                    "placeNoteAuthor": "Place Author 0",
+                    "placeNoteDate": "2007-06-11"
+                }
+            ],
+            "placeReferenceGroupList": [
+                {
+                    "placeReference": "Reference 0",
+                    "placeReferenceNote": "Reference Note 0"
+                }
+            ],
+            "placeAssocGroupList": [
+                {
+                    "placeAssocName": "Name 0",
+                    "placeAssociation": "survey",
+                    "placeAssocDate": "08/26/2010",
+                    "placeAssocNote": "Association Note 0"
+                }
+            ],
+            "addrGroup": [
+                {
+                    "addressPlace1": "Address Line 1-0",
+                    "addressPlace2": "Address Line 2-0",
+                    "addressStateOrProvince": "Address State 0",
+                    "addressPostCode": "Postal Code 0",
+                    "addressCountry": "Address Country 0",
+                    "addressMunicipality": "Address Municipality 0",
+                    "addressType": "intersection"
+                }
+            ]
+        },
+
+        {
+            "placeTermGroup": [
+                {
+                    "termDisplayName": "Place 3 Name Edited",
+                    "termName": "Place 3 Term Name 0 Edited",
+                    "termQualifier": "Place Term Qualifier 0 Edited",
+                    "termStatus": "rejected",
+                    "anthropologyPlaceType": "alternative term",
+                    "termFlag": "site name",
+                    "historicalStatus": "historical",
+                    "termLanguage": "Dutch",
+                    "termPrefForLang": true,
+                    "nameAbbrev": "Place 3 Term Abbrev 0 Edited",
+                    "nameNote": "Place 3 Term Note 0 Edited",
+                    "nameDate": "10/14/2018",
+                    "termSource": "Term Source 0 Edited",
+                    "termSourceDetail": "Term Source Detail 0 Edited",
+                    "termSourceID": "Term Source ID 0 Edited",
+                    "termSourceNote": "Term Source Note 0 Edited"
+                },
+                {
+                    "termDisplayName": "Place 3 Display Name",
+                    "termName": "Place 3 Term Name 1",
+                    "termQualifier": "Place Term Qualifier 1",
+                    "termStatus": "accepted",
+                    "anthropologyPlaceType": "descriptor",
+                    "termFlag": "pseudonym",
+                    "historicalStatus": "both",
+                    "termLanguage": "Spanish",
+                    "termPrefForLang": false,
+                    "nameAbbrev": "Place 3 Term Abbreviation 1",
+                    "nameNote": "Place 3 Term Note 1",
+                    "nameDate": "09/15/2019",
+                    "termSource": "Term Source 0",
+                    "termSourceDetail": "Term Source Detail 1",
+                    "termSourceID": "Term Source ID 1",
+                    "termSourceNote": "Term Source Note 1"
+                }
+            ],
+            "anthropologyPlaceTypes": [
+                {
+                    "anthropologyPlaceType": "fort"
+                },
+                {
+                    "anthropologyPlaceType": "rockshelter"
+                }
+            ],
+            "anthropologyPlaceOwnerGroupList": [
+                {
+                    "anthropologyPlaceOwner": "Owner 0 Edited",
+                    "anthropologyPlaceOwnershipStart": "11/23/2015",
+                    "anthropologyPlaceOwnershipEnd": "05/01/2018",
+                    "anthropologyPlaceOwnershipNote": "Ownership Note 0 Edited"
+                },
+                {
+                    "anthropologyPlaceOwner": "Owner 1",
+                    "anthropologyPlaceOwnershipStart": "02/18/2000",
+                    "anthropologyPlaceOwnershipEnd": "04/19/2000",
+                    "anthropologyPlaceOwnershipNote": "Ownership Note 1"
+                }
+            ],
+            "placeNoteGroup": [
+                {
+                    "placeNoteText": "Place Note 0 Edited",
+                    "placeNoteAuthor": "Place Author 0 Edited",
+                    "placeNoteDate": "2014-12-01"
+                },
+                {
+                    "placeNoteText": "Place Note 1",
+                    "placeNoteAuthor": "Place Author 1",
+                    "placeNoteDate": "2020-05-30"
+                }
+            ],
+            "placeReferenceGroupList": [
+                {
+                    "placeReference": "Reference 0 Edited",
+                    "placeReferenceNote": "Reference Note 0 Edited"
+                },
+                {
+                    "placeReference": "Reference 1",
+                    "placeReferenceNote": "Reference Note 1"
+                }
+            ],
+            "placeAssocGroupList": [
+                {
+                    "placeAssocName": "Name 0 Edited",
+                    "placeAssociation": "survey",
+                    "placeAssocDate": "03/21/2020",
+                    "placeAssocNote": "Association Note 0 Edited"
+                },
+                {
+                    "placeAssocName": "Name 1",
+                    "placeAssociation": "salvage",
+                    "placeAssocDate": "01/04/21",
+                    "placeAssocNote": "Association Note 1"
+                }
+            ],
+            "addrGroup": [
+                {
+                    "addressPlace1": "Address Line 1-0 Edited",
+                    "addressPlace2": "Address Line 2-0 Edited",
+                    "addressStateOrProvince": "Address State 0 Edited",
+                    "addressPostCode": "Postal Code 0 Edited",
+                    "addressCountry": "Address Country 0 Edited",
+                    "addressMunicipality": "Municipality 0 Edited",
+                    "addressType": "personal"
+                },
+                {
+                    "addressPlace1": "Address Line 1-1",
+                    "addressPlace2": "Address Line 2-1",
+                    "addressStateOrProvince": "Address State 1",
+                    "addressPostCode": "Postal Code 1",
+                    "addressCountry": "Address Country 1",
+                    "addressMunicipality": "Municipality 1",
+                    "addressType": "street address"
+                }
+            ]
+        },
+        {
+            "placeTermGroup": [
+                {
+                    "termDisplayName": "Place 2 Display Name Data Removed"
+                }
+            ],
+            "anthropologyPlaceTypes": [
+                { }
+            ],
+            "anthropologyPlaceOwnerGroupList": [
+                { }
+            ],
+            "placeNoteGroup": [
+                { }
+            ],
+            "placeReferenceGroupList": [
+                { }
+            ],
+            "placeAssocGroupList": [
+                { }
+            ],
+            "addrGroup": [
+                { }
+            ]
+        },
+
+        {
+            "anthropologyPlaceTypes": [
+                { }
+            ]
+        },
+
+        {
+            "anthropologyPlaceTypes": [
+                {
+                    "anthropologyPlaceType": "historic ranch"
+                }
+            ]
+        },
+
+        {
+          "placeNoteGroup": [
+              {
+                  "placeNoteText": "Place 5 note"
+              }
+          ]
+        }
+    ]
+}

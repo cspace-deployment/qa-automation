@@ -17,7 +17,7 @@ module BOTGARDENTaxonInfoForm
       # TODO - attribute DBH input
       # TODO - attribute recorded by input
       # TODO - attribute conservation organization input
-      enter_auto_complete(botgarden_attribute_conserv_categ_input(index), botgarden_attribute_conserv_categ_options(index), attribute[BOTGARDENTaxonData::CONSERV_CATEG.name])
+      enter_auto_complete(botgarden_attribute_conserv_categ_input(index), botgarden_attribute_conserv_categ_options(index), attribute[BOTGARDENTaxonData::CONSERV_CATEG.name], 'Conservation Categories')
       # TODO - attribute habit input
       # TODO - attribute climate rating input
       # TODO - attribute frost sensitive input
