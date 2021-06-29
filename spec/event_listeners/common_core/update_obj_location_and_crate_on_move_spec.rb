@@ -1,6 +1,6 @@
 require_relative '../../../spec_helper'
 
-[Deployment::BAMPFA, Deployment::PAHMA].each do |deploy|
+[Deployment::PAHMA, Deployment::BAMPFA].each do |deploy|
   describe "#{deploy.name}"  do
 
     include Logging

@@ -149,5 +149,158 @@
         {
             "referenceNumber": "UoC buttons test"
         }
+    ],
+
+    "heldInTrust": [
+      {
+        "hitNumber": ""
+      },
+
+      {
+        "hitNumber": "HiT add test",
+        "entryDate": "2021-05-01",
+        "hitDepositorGroup": [
+          {
+            "depositor": "HiT Depositor Name 1",
+            "depositorContact": "HiT Depositor Contact 1",
+            "depositorContactType": "Suitable",
+            "depositorNote": "HiT Depositor Note 1"
+          },
+          {
+            "depositor": "HiT Depositor Name 2",
+            "depositorContact": "HiT Depositor Contact 2",
+            "depositorContactType": "Unsuitable",
+            "depositorNote": "HiT Depositor Note 2"
+          }
+        ],
+        "agreementGroup": [
+          {
+            "agreementStatus": "objects returned",
+            "agreementStatusDate": "2019-09-19",
+            "agreementStatusNote": "HiT Agreement Status Note 1"
+          },
+          {
+            "agreementStatus": "cancelled",
+            "agreementStatusDate": "2020-06-15",
+            "agreementStatusNote": "HiT Agreement Status Note 2"
+          }
+        ],
+        "entryMethods": [
+          {
+            "entryMethod": "Post"
+          },
+          {
+            "entryMethod": "In person"
+          }
+        ],
+        "entryReason": "loan",
+        "agreementRenewalDates": [
+          {
+            "agreementRenewalDate": "2020-01-23"
+          },
+          {
+            "agreementRenewalDate": "2020-12-05"
+          }
+        ],
+        "returnDate": "2021-04-24",
+        "entryNote": "HiT Agreement Note 1",
+        "internalApprovalGroup": [
+          {
+            "internalApprovalGroupName": "collection committee",
+            "internalApprovalIndividual": "HiT Internal Approval Individual 1",
+            "internalApprovalStatus": "sent",
+            "internalApprovalDate": "2015-08-16",
+            "internalApprovalNote": "HiT Internal Approval Note 1"
+          },
+          {
+            "internalApprovalGroupName": "executive committee",
+            "internalApprovalIndividual": "HiT Internal Approval Individual 2",
+            "internalApprovalStatus": "renewed",
+            "internalApprovalDate": "2020-10-19",
+            "internalApprovalNote": "HiT Internal Approval Note 2"
+          }
+        ],
+        "externalApprovalGroup": [
+          {
+            "externalApprovalGroupName": "executive committee",
+            "externalApprovalIndividual": "HiT External Approval Individual 1",
+            "externalApprovalStatus": "sent",
+            "externalApprovalDate": "2017-11-11",
+            "externalApprovalNote": "HiT External Approval Note 1"
+          },
+          {
+            "externalApprovalGroupName": "collection committee",
+            "externalApprovalIndividual": "HiT External Approval Individual 2",
+            "externalApprovalStatus": "authorized",
+            "externalApprovalDate": "2021-01-01",
+            "externalApprovalNote": "HiT External Approval Note 2"
+          }
+        ],
+        "handlingPreferences": "HiT Handling Preference 1",
+        "handlingLimitationsGroup": [
+          {
+            "handlingLimitationsType": "unknown",
+            "handlingLimitationsRequestor": "HiT Requestor 1",
+            "handlingLimitationsLevel": "unknown",
+            "handlingLimitationsOnBehalfOf": "HiT On Behalf Of 1",
+            "handlingLimitationsDetail": "HiT Detail 1",
+            "handlingLimitationsDate": "2021-05-23"
+          },
+          {
+            "handlingLimitationsType": "photography",
+            "handlingLimitationsRequestor": "HiT Requestor 2",
+            "handlingLimitationsLevel": "recommendation",
+            "handlingLimitationsOnBehalfOf": "HiT On Behalf Of 2",
+            "handlingLimitationsDetail": "HiT Detail 2",
+            "handlingLimitationsDate": "2021-06-08"
+          }
+        ],
+        "correspondenceGroup": [
+          {
+            "correspondenceDate": "2000-11-24",
+            "correspondenceSender": "HiT Sender 1",
+            "correspondenceRecipient": "HiT Recipient 1",
+            "correspondenceSummary": "HiT Summary 1",
+            "correspondenceReference": "HiT Reference 1"
+          },
+          {
+            "correspondenceDate": "2020-09-18",
+            "correspondenceSender": "HiT Sender 2",
+            "correspondenceRecipient": "HiT Recipient 2",
+            "correspondenceSummary": "HiT Summary 2",
+            "correspondenceReference": "HiT Reference 2"
+          }
+        ]
+      },
+
+      {
+        "hitNumber": "HiT edit test"
+      },
+
+      {
+        "hitNumber": "HiT delete test"
+      },
+
+      {
+          "hitNumber": "HiT relate 1.1"
+      },
+      {
+          "hitNumber": "HiT relate 1.2"
+      },
+      {
+          "hitNumber": "HiT buttons test"
+      },
+
+      {
+        "hitDepositorGroup": [
+          {
+            "depositor": "HiT Depositor Name 6-1"
+          },
+          {
+            "depositor": "HiT Depositor Name 6-2"
+          }
+        ]
+      }
+
     ]
 }

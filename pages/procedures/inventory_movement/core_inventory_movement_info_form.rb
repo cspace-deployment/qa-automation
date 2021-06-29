@@ -12,7 +12,7 @@ module CoreInventoryMovementInfoForm
     hide_notifications_bar
     logger.info "Entering reference number '#{data[CoreInventoryMovementData::REF_NUM.name]}'"
     wait_for_element_and_type(ref_num_input, data[CoreInventoryMovementData::REF_NUM.name])
-    hit_enter
+    hit_tab
   end
 
   # NORMAL LOCATION

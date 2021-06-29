@@ -7,6 +7,7 @@ class CreateNewPage
   def object_link; {:id => 'collectionobject'} end
   def acquisition_link; {:id => 'acquisition'} end
   def exhibition_link; {:id => 'exhibition'} end
+  def held_in_trust_link; {:id => 'hit'} end
   def movement_link; {:id => 'movement'} end
   def use_of_collections_link; {:id => 'uoc'} end
   def authority_org_local_link; {:id => 'organization/local'} end
@@ -77,10 +78,15 @@ class CreateNewPage
   def click_create_new_use_of_collections
     wait_for_page_and_click use_of_collections_link
   end
-  
+
   # Clicks the link to create a new exhibition record
   def click_create_new_exhibition
     wait_for_page_and_click exhibition_link
+  end
+
+  # Clicks the links to create a new held in trust record
+  def click_create_new_held_in_trust
+    wait_for_page_and_click held_in_trust_link
   end
 
   # Clicks the link to create a new Local organization

@@ -92,6 +92,12 @@ class TestConfig < Config
     parse_test_data((deployment || @deployment), 'test-data-all-procedures.json')['useOfCollections']
   end
 
+  # Returns the test data for the 'held in trust' record tests 
+  # @return [Array<Hash>]
+  def held_in_trust_test_data(deployment = nil)
+    parse_test_data((deployment || @deployment), 'test-data-all-procedures.json')['heldInTrust']
+  end
+
   # Returns the test data for the 'inventory movement' tests
   # @return [Array<Hash>]
   def inventory_movement_test_data(deployment = nil)

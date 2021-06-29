@@ -646,6 +646,7 @@ module CollectionSpacePages
   def nth_result_row(value); {:xpath => "//div[@class=\"cspace-ui-SearchResultTable--common\"]//*[@aria-label=\"row\"][#{value}]"} end
   def close_tab(label); {:xpath => "//button[text() = '#{label}']//following-sibling::button[@aria-label = 'close']"} end
   def movement_secondary_tab; {:xpath => '//button[contains(text(), "Inventory") and contains(text(), "Movement")]'} end
+  def related_record_h1; {:xpath => '(//h1)[2]'} end
 
   # Clicks the Primary Record tab on a record
   def click_primary_record_tab

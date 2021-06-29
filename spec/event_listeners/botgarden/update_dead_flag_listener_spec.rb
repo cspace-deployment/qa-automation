@@ -35,10 +35,6 @@ describe 'BOTGARDEN' do
 
   after(:all) { quit_browser @test.driver }
 
-  #Variables to be used in tests
-  accession_number = {:xpath => '//header//div//h1//a'}
-  related_rec_header = {:xpath => '//div[@class="cspace-ui-RelationEditor--common"]//header//h1'}
-
   it "create object, current location records" do
     @search_page.click_create_new_link
     @create_new_page.click_create_new_object
@@ -55,15 +51,14 @@ describe 'BOTGARDEN' do
 
     @current_loc_page.when_exists(@current_loc_page.nth_result_row(2), Config.short_wait)
     expect(@current_loc_page.elements(@current_loc_page.related_panel_rows).length).to eql(2)
-    expect(@current_loc_page.element_text(related_rec_header) == "Asian – #{@current_loc_2[BOTGARDENCurrentLocationData::ACTION_DATE.name]}")
+    expect(@current_loc_page.element_text(@current_loc_page.related_record_h1)).to eql("Asian – #{@current_loc_2[BOTGARDENCurrentLocationData::ACTION_DATE.name]}")
     expect(@current_loc_page.elements(@current_loc_page.related_proc_links).length).to eql(2)
 
     @object_page.click_primary_record_tab
-
     @object_page.when_displayed(@object_page.botgarden_dead_flag_input, Config.short_wait)
     sleep Config.click_wait
-    expect(@object_page.element_value(@object_page.botgarden_dead_flag_input) == "no").to be true
-    expect(@object_page.enabled? @object_page.botgarden_dead_flag_input)
+    expect(@object_page.element_value(@object_page.botgarden_dead_flag_input)).to eql("no")
+    expect(@object_page.enabled? @object_page.botgarden_dead_flag_input).to be false
     expect(@object_page.elements(@object_page.related_proc_links).length).to eql(2)
   end
 
@@ -76,11 +71,10 @@ describe 'BOTGARDEN' do
       @current_loc_page.wait_for_notification("Deleted")
       expect(@current_loc_page.elements(@search_results_page.result_rows).length).to eql(records_left)
 
-      @current_loc_page.wait_for_element_and_click(accession_number)
-
+      @current_loc_page.wait_for_element_and_click(@search_results_page.title_bar_record_link(@obj_record[BOTGARDENObjectData::OBJECT_NUM.name]))
       @object_page.when_displayed(@object_page.botgarden_dead_flag_input, Config.medium_wait)
       sleep Config.click_wait
-      expect(@object_page.element_value(@object_page.botgarden_dead_flag_input) == dead_flag).to be true
+      expect(@object_page.element_value(@object_page.botgarden_dead_flag_input)).to eql(dead_flag)
     end
     expect(@object_page.elements(@object_page.related_proc_links).length).to eql(0)
   end
@@ -91,11 +85,10 @@ describe 'BOTGARDEN' do
     @current_loc_page.enter_botgarden_current_location_data @current_loc_3
     @current_loc_page.save_record
     @current_loc_page.click_primary_record_tab
-
     @object_page.refresh_page
     @object_page.when_displayed(@object_page.botgarden_dead_flag_input, Config.medium_wait)
     sleep Config.click_wait
-    expect(@object_page.element_value(@object_page.botgarden_dead_flag_input) == "no").to be true
+    expect(@object_page.element_value(@object_page.botgarden_dead_flag_input)).to eql("no")
   end
 
 end
